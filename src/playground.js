@@ -30,7 +30,7 @@ export async function main() {
 }
 
 async function fetchPlugin() {
-  const response = await fetch("/wp-feature-notifications.zip");
+  const response = await fetch("/playground-experiment/wp-feature-notifications.zip");
   const blob = await response.blob();
   const file = new File([blob], "wp-feature-notifications.zip");
   return file;
