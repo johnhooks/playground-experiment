@@ -6,21 +6,7 @@
     <title>Playground</title>
   </head>
   <body>
-    <iframe
-      id="wp"
-      style="width: 1200px; height: 800px"
-      src="https://playground.wordpress.net/?plugin=gutenberg&url=/"
-    ></iframe>
+    <div id="root"></div>
   </body>
-  <script type="module">
-    import { connectPlayground } from "@wp-playground/client";
-    (async function () {
-      const client = await connectPlayground(
-        // An iframe pointing to https://playground.wordpres.net
-        document.getElementById("wp")
-      );
-      await client.isReady();
-      await client.goTo("/wp-admin/");
-    })();
-  </script>
+  <script type="module" src="./src/playground.js"></script>
 </html>
