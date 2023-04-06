@@ -2,6 +2,16 @@
   "name": "playground-experiment",
   "private": true,
   "version": "0.0.0",
+  "description": "An experiment using the WordPress Playground.",
+	"license": "GPL-2.0-or-later",
+  "contributors": [
+		"John Hooks <bitmachina@outlook.com> (https://johnhooks.io/)"
+	],
+	"homepage": "https://johnhooks.io/playground-experiment",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/johnhooks/playground-experiment.git"
+	},
   "type": "module",
   "scripts": {
     "dev": "vite",
