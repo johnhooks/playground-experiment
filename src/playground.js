@@ -1,32 +1,29 @@
-import { connectPlayground, login, installPlugin } from "@wp-playground/client";
+import {
+  startPlaygroundWeb,
+  installPlugin,
+  login,
+} from "@wp-playground/client";
 
-import './style.css'
-
-main();
+import './style.css';
 
 export async function main() {
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   const iframe = render(root);
 
-  const client = await connectPlayground(
+  const playground = await startPlaygroundWeb({
     iframe,
-    "https://playground.wordpress.net/remote.html"
-  );
-
-  await client.isReady();
-
-  login(client, 'admin');
-
-  const plugin = await fetchPlugin();
-  installPlugin(client, plugin);
-
-  await client.goTo("/wp-admin/");
-
-  const result = await client.run({
-    code: '<?php echo "Hi!"; ',
+    remoteUrl: "https://playground.wordpress.net/remote.html",
   });
 
-  console.log(new TextDecoder().decode(result.body));
+  await playground.isReady();
+
+  await login(playground, { username: "admin", password: "password" });
+
+  const pluginZipFile = await fetchPlugin();
+
+  await installPlugin(playground, { pluginZipFile, activate: true });
+
+  await playground.goTo("/wp-admin");
 }
 
 async function fetchPlugin() {

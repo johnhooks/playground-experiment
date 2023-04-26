@@ -22,6 +22,6 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "@wp-playground/client": "^0.1.17"
+    "@wp-playground/client": "^0.1.38"
   }
 }
